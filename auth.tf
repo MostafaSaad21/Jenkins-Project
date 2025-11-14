@@ -1,28 +1,25 @@
-# -------------------------------
-# aws-auth ConfigMap
-# -------------------------------
 resource "kubernetes_config_map" "aws_auth" {
-  depends_on = [module.eks]  # ensure EKS cluster is ready
-
   metadata {
     name      = "aws-auth"
     namespace = "kube-system"
   }
 
   data = {
-    # Map EKS Node Role
     mapRoles = yamlencode([
       {
-        rolearn  = module.iam.eks_node_role_arn
+        rolearn  = "arn:aws:iam::742674388365:role/hello-devops-production-eks-node-role"
         username = "system:node:{{EC2PrivateDNSName}}"
         groups   = ["system:bootstrappers", "system:nodes"]
       }
     ])
-
-    # Map your AWS root user to Kubernetes admin
     mapUsers = yamlencode([
       {
-        userarn  = "arn:aws:iam::742674388365:root"  # your root ARN
+        userarn  = "arn:aws:iam::742674388365:user/cli-user" # your IAM user
+        username = "cli-user"
+        groups   = ["system:masters"]
+      },
+      {
+        userarn  = "arn:aws:iam::742674388365:root"
         username = "root"
         groups   = ["system:masters"]
       }
