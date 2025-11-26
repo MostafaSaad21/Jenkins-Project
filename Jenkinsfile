@@ -11,7 +11,7 @@ pipeline {
 
                 echo "🔹 Checking out repository..."
 
-                git branch: 'main', url: 'https://github.com/mohamed55979/HelloApp'
+                git branch: 'main', url: 'https://github.com/MostafaSaad21/Jenkins-Project'
 
             }
 
@@ -41,7 +41,7 @@ pipeline {
 
         }
 
-/*
+
 
         stage('Terraform Apply') {
 
@@ -57,8 +57,8 @@ pipeline {
 
         }
 
-*/
 
+/*
         stage('Terraform Destroy') {
 
             steps {
@@ -73,6 +73,7 @@ pipeline {
 
         }
 
+*/
     }
  
     post {
