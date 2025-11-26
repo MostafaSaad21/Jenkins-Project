@@ -20,7 +20,7 @@ enable_dns_support   = true
 # ============================================================================
 # EKS CONFIGURATION
 # ============================================================================
-cluster_version           = "1.31"
+cluster_version           = "1.32"
 node_group_desired_size   = 2
 node_group_min_size       = 1
 node_group_max_size       = 4
