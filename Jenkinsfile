@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo "🔹 Checking out repository..."
-                git branch: 'master', url: 'https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra'
+                git branch: 'main', url: 'https://github.com/MostafaSaad21/Jenkins-Project.git'
             }
         }
 
